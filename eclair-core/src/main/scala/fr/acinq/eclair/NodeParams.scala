@@ -101,6 +101,7 @@ object NodeParams {
 
     val chain = config.getString("chain")
     val chainHash = chain match {
+      case "livenet" => Block.LivenetGenesisBlock.hash
       case "test" => Block.TestnetGenesisBlock.hash
       case "regtest" => Block.RegtestGenesisBlock.hash
       case _ => throw new RuntimeException("only regtest and testnet are supported for now")
